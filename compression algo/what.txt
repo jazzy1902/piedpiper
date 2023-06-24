@@ -1,1 +1,3 @@
 The algorithm and code for the compression algorithms regarding text and image compression reside here.
+.
+work in progress :)
