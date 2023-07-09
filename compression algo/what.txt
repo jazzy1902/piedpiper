@@ -1,2 +1,4 @@
 The txtcomp.c file is a c code that uses huffman encoding to compress text files
+
+Use gcc compiler to compile the file in command line. While executing the executable file through command line the second argument will be your file that you need to compress, the command will look something like this ( ./a.out thefiletobecompressed.txt). The will give an output.bin file
 work in progress :)
