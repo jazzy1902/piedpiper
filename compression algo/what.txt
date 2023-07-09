@@ -1,3 +1,2 @@
-The algorithm and code for the compression algorithms regarding text and image compression reside here.
-.
+The txtcomp.c file is a c code that uses huffman encoding to compress text files
 work in progress :)
