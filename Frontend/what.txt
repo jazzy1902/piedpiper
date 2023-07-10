@@ -1,0 +1,2 @@
+This directory contains the front-end code for the landing page of our website.
+We could not complete the code but we sure hope that this makes you smile :)
