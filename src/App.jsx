@@ -7,7 +7,7 @@ function App() {
   const [output, setOutput] = useState(null);
   const [mode, setMode] = useState("text");
   const [action, setAction] = useState("compress");
-  const [sizeReduction, setSizeReduction] = useState(70); // Default to 70%
+  const [sizeReduction, setSizeReduction] = useState(70);
   const [processing, setProcessing] = useState(false);
 
   const handleFileChange = (e) => {
@@ -27,7 +27,7 @@ function App() {
   };
 
   const handleSizeReductionChange = (e) => {
-    const value = Math.max(0, Math.min(100, parseInt(e.target.value) || 70)); // Limit between 0% and 100%
+    const value = Math.max(0, Math.min(100, parseInt(e.target.value) || 70));
     setSizeReduction(value);
   };
 
@@ -36,7 +36,6 @@ function App() {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
-    // Load image
     await new Promise((resolve) => {
       img.onload = () => {
         canvas.width = img.width;
@@ -47,21 +46,18 @@ function App() {
       img.src = URL.createObjectURL(file);
     });
 
-    // Get original size
     const originalBlob = await fetch(URL.createObjectURL(file)).then((res) => res.blob());
     const originalSize = originalBlob.size;
     const targetSize = (originalSize * targetPercentage) / 100;
 
-    // Handle edge cases
     if (targetPercentage === 100) {
-      const url = canvas.toDataURL("image/jpeg", 1.0); // Full quality
+      const url = canvas.toDataURL("image/jpeg", 1.0);
       return { url, name: `${file.name.split(".")[0]}_compressed.jpg` };
     }
     if (targetPercentage === 0) {
-      return { url: "", name: null, note: "Target size of 0% is not possible" }; // No output
+      return { url: "", name: null, note: "Target size of 0% is not possible" };
     }
 
-    // Binary search for quality to hit target size
     let low = 0.1;
     let high = 1.0;
     let url, blob, size;
