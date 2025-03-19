@@ -1,42 +1,205 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Matte black background: #1A1A1A */
+/* Subtle pastel accent: #E6E6FA (lavender) */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: #1a1a1a;
+  color: #e6e6fa;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #e6e6fa;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #e6e6fa;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.mode-choices {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.file-input {
+  padding: 0.5rem;
+  font-family: "Space Mono", monospace;
+  background-color: #e6e6fa;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 300px;
+}
+
+.file-input::-webkit-file-upload-button {
+  background-color: #333333;
+  color: #e6e6fa;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: "Space Mono", monospace;
+  cursor: pointer;
+}
+
+.action-choices {
+  display: flex;
+  gap: 2rem;
+}
+
+.size-reduction {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Space between label and input */
+}
+
+.size-reduction label {
+  font-size: 1.1rem;
+  color: #e6e6fa;
+}
+
+.size-input {
+  width: 80px;
+  padding: 0.5rem;
+  font-family: "Space Mono", monospace;
+  background-color: #e6e6fa;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.1rem;
+  color: #e6e6fa;
+  cursor: pointer;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.radio-label input[type="radio"] {
+  accent-color: #e6e6fa;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.submit-btn {
+  padding: 0.75rem 2rem;
+  font-family: "Space Mono", monospace;
+  font-size: 1rem;
+  background-color: #e6e6fa;
+  color: #1a1a1a;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.card {
-  padding: 2em;
+.submit-btn:hover:not(:disabled) {
+  background-color: #d5d5f5;
 }
 
-.read-the-docs {
-  color: #888;
+.submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.progress-bar {
+  width: 100%;
+  max-width: 300px;
+  height: 8px;
+  background-color: #333333;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.progress-bar::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #e6e6fa;
+  animation: progress 2s infinite ease-in-out;
+}
+
+.output {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.output a {
+  color: #e6e6fa;
+  text-decoration: none;
+  font-size: 1rem;
+  border-bottom: 1px solid #e6e6fa;
+  transition: color 0.3s ease;
+}
+
+.output a:hover {
+  color: #d5d5f5;
+}
+
+.note {
+  font-size: 0.9rem;
+  color: #e6e6fa;
+  opacity: 0.7;
+  margin-top: 0.5rem;
+}
+
+.preview {
+  margin-top: 1rem;
+}
+
+.preview img {
+  max-width: 300px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes progress {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }
